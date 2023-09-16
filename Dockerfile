@@ -5,4 +5,4 @@ COPY Airline_Delay_Cause.csv source.csv
 COPY pipeline.py pipeline_c.py
 RUN pip install pandas
 
-ENTRYPOINT [ "bash" ]
+ENTRYPOINT [ "python", "pipeline_c.py" ]
