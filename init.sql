@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS animal_di;
+DROP TABLE IF EXISTS animal_dim;
 CREATE TABLE animal_dim (
     animal_id VARCHAR PRIMARY KEY,
     dob DATE,
