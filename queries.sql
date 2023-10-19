@@ -74,10 +74,10 @@ GROUP BY age_group;
 
 ---5
 SELECT 
-    dd.ts,
+    d.ts,
     COUNT(fo.outcome_key) AS outcomes,
-    SUM(COUNT(fo.outcome_type_key)) OVER (ORDER BY dd.ts) AS cumulative_outcomes
-FROM date_dim dd
-LEFT JOIN outcomes_fact fo ON dd.date_key = fo.date_key
-GROUP BY dd.ts
-ORDER BY dd.ts;
+    SUM(COUNT(fo.outcome_type_key)) OVER (ORDER BY d.ts) AS cumulative_outcomes
+FROM date_dim d
+LEFT JOIN outcomes_fact fo ON d.date_key = fo.date_key
+GROUP BY d.ts
+ORDER BY d.ts;
