@@ -69,7 +69,7 @@ def outcometype_dim_data(new_data):
 
 def animaltype_data(new_data):
     animal_dim = new_data[['animal_id', 'dob', 'animal_type', 'sterilization_status', 'gender', 'age_years']].drop_duplicates()
-    animal_dim['animal_key'] = range(1, len(animal_dim) + 1)
+    animal_dim['animal_id'] = range(1, len(animal_dim) + 1)
     return animal_dim
 
 def date_dim_data(new_data):
@@ -99,7 +99,7 @@ def load_data(data):
     # Map the merged DataFrame columns to the table columns
     outcome_fact.rename(columns={
         'date_key': 'date_key',
-        'animal_key': 'animal_key',
+        'animal_id': 'animal_id',
         'outcome_type_key': 'outcome_type_key',
         'outcome_count': 'outcome_count'
     }, inplace=True)
