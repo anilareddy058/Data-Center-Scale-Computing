@@ -1,0 +1,27 @@
+services:
+  db:  
+    image: "postgres:16" 
+    environment: 
+      - POSTGRES_PASSWORD=blabla
+      - POSTGRES_USER=anilareddy
+      - POSTGRES_DB=shelter
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  etl:
+    build: .
+    command: https://raw.githubusercontent.com/anilareddy058/Data-Center-Scale-Computing/hw2/Austin_Animal_Center_Outcomes_20231017.csv
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+
+
+
+
+
+

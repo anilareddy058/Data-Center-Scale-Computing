@@ -1,8 +1,7 @@
-FROM python:3.8
+FROM python:3.11
 
-WORKDIR /pro
-COPY Airline_Delay_Cause.csv source.csv
-COPY pipeline.py pipeline_c.py
-RUN pip install pandas
+WORKDIR /app
+COPY pipeline.py pipeline.py
+RUN pip install pandas sqlalchemy psycopg2
 
-ENTRYPOINT [ "python", "pipeline_c.py" ]
+ENTRYPOINT [ "python", "pipeline.py" ]
